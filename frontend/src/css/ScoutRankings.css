@@ -1,0 +1,559 @@
+/* ScoutRankings.css - Material UI Inspired */
+
+:root {
+  --primary: #1976d2;
+  --primary-light: #42a5f5;
+  --primary-dark: #1565c0;
+  --surface: #ffffff;
+  --background: #fafafa;
+  --on-surface: #212121;
+  --on-surface-variant: #757575;
+  --outline: #e0e0e0;
+  --surface-variant: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-hover: rgba(0, 0, 0, 0.16);
+}
+
+.scout-rankings-container {
+  min-height: 100vh;
+  background: var(--background);
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  box-sizing: border-box;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* Header */
+.scout-rankings-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.scout-rankings-header h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.scout-rankings-header p {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: var(--on-surface-variant);
+  font-weight: 400;
+}
+
+/* Scout Tabs */
+.scout-rankings-tabs {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+  gap: 0.25rem;
+  overflow-x: auto;
+}
+
+.scout-rankings-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.scout-rankings-tab:not(.active) {
+  background: transparent;
+  color: var(--on-surface-variant);
+}
+
+.scout-rankings-tab:not(.active):hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--on-surface);
+}
+
+.scout-rankings-tab.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+}
+
+.scout-rankings-tab-label {
+  font-weight: 500;
+}
+
+.scout-rankings-tab-count {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.scout-rankings-tab:not(.active) .scout-rankings-tab-count {
+  background: var(--surface-variant);
+  color: var(--on-surface-variant);
+}
+
+/* Content */
+.scout-rankings-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scout-rankings-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scout-rankings-list-header h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.scout-rankings-count {
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+}
+
+/* Rankings List */
+.scout-rankings-list {
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--outline);
+}
+
+/* Individual Row */
+.scout-rankings-row {
+  display: flex;
+  align-items: center;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--outline);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: var(--surface);
+  min-height: 90px;
+}
+
+.scout-rankings-row:last-child {
+  border-bottom: none;
+}
+
+.scout-rankings-row:hover {
+  background: rgba(25, 118, 210, 0.04);
+  transform: translateX(4px);
+}
+
+/* Rank */
+.scout-rankings-rank {
+  width: clamp(3rem, 6vw, 4rem);
+  margin-right: clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scout-rankings-rank-number {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 500;
+  color: var(--primary);
+  background: rgba(25, 118, 210, 0.08);
+  width: clamp(2.5rem, 5vw, 3rem);
+  height: clamp(2.5rem, 5vw, 3rem);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scout-rankings-row:hover .scout-rankings-rank-number {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+}
+
+/* Photo */
+.scout-rankings-photo {
+  width: clamp(4rem, 8vw, 5rem);
+  height: clamp(4rem, 8vw, 5rem);
+  margin-right: clamp(1rem, 3vw, 1.5rem);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.scout-rankings-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--outline);
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scout-rankings-row:hover .scout-rankings-photo img {
+  border-color: var(--primary);
+}
+
+.scout-rankings-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--outline);
+  color: var(--on-surface-variant);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scout-rankings-photo-placeholder.hidden {
+  display: none;
+}
+
+/* Player Info */
+.scout-rankings-info {
+  flex: 1;
+  min-width: 0;
+  margin-right: 1rem;
+}
+
+.scout-rankings-name {
+  font-size: clamp(1.125rem, 3vw, 1.25rem);
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0 0 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scout-rankings-row:hover .scout-rankings-name {
+  color: var(--primary);
+}
+
+.scout-rankings-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.875rem, 2vw, 0.9rem);
+  color: var(--on-surface-variant);
+  flex-wrap: wrap;
+}
+
+.scout-rankings-team {
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+.scout-rankings-league {
+  font-weight: 400;
+  color: var(--on-surface-variant);
+}
+
+.scout-rankings-measurements {
+  font-weight: 400;
+  color: var(--on-surface-variant);
+}
+
+.scout-rankings-separator {
+  color: var(--outline);
+  font-weight: normal;
+}
+
+/* Consensus Info */
+.scout-rankings-consensus-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.scout-rankings-consensus-rank,
+.scout-rankings-range {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scout-rankings-consensus-label,
+.scout-rankings-range-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.scout-rankings-consensus-value {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.scout-rankings-range-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+/* Actions */
+.scout-rankings-actions {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.scout-rankings-row:hover .scout-rankings-actions {
+  opacity: 1;
+}
+
+.scout-rankings-view-hint {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  background: var(--surface-variant);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.scout-rankings-row:hover .scout-rankings-view-hint {
+  background: var(--primary);
+  color: white;
+}
+
+/* Loading States */
+.scout-rankings-loading {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--outline);
+}
+
+.scout-rankings-row-skeleton {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--outline);
+  animation: pulse 2s infinite;
+}
+
+.scout-rankings-row-skeleton:last-child {
+  border-bottom: none;
+}
+
+.scout-rankings-rank-skeleton {
+  width: 3rem;
+  height: 3rem;
+  background: var(--outline);
+  border-radius: 50%;
+  margin-right: 1.5rem;
+}
+
+.scout-rankings-photo-skeleton {
+  width: 5rem;
+  height: 5rem;
+  background: var(--outline);
+  border-radius: 50%;
+  margin-right: 1.5rem;
+}
+
+.scout-rankings-info-skeleton {
+  flex: 1;
+}
+
+.scout-rankings-name-skeleton {
+  width: 60%;
+  height: 1.25rem;
+  background: var(--outline);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.scout-rankings-team-skeleton {
+  width: 40%;
+  height: 0.9rem;
+  background: var(--surface-variant);
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* No Data */
+.scout-rankings-no-data {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+}
+
+.scout-rankings-no-data h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.scout-rankings-no-data p {
+  color: var(--on-surface-variant);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .scout-rankings-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scout-rankings-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scout-rankings-consensus-info {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .scout-rankings-container {
+    padding: 1rem;
+  }
+
+  .scout-rankings-tabs {
+    flex-direction: column;
+    height: auto;
+    overflow-x: visible;
+  }
+
+  .scout-rankings-tab {
+    flex: none;
+    justify-content: center;
+  }
+
+  .scout-rankings-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .scout-rankings-row {
+    padding: 1rem;
+  }
+
+  .scout-rankings-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .scout-rankings-separator {
+    display: none;
+  }
+
+  .scout-rankings-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .scout-rankings-rank {
+    width: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  .scout-rankings-photo {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 1rem;
+  }
+
+  .scout-rankings-row {
+    min-height: 80px;
+    padding: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scout-rankings-tabs {
+    padding: 0.25rem;
+    gap: 0.125rem;
+  }
+
+  .scout-rankings-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .scout-rankings-tab-count {
+    font-size: 0.7rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.scout-rankings-tab:focus,
+.scout-rankings-row:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .scout-rankings-tab,
+  .scout-rankings-row {
+    transition: none;
+  }
+}

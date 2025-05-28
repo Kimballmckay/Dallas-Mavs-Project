@@ -1,0 +1,457 @@
+/* NavBar.css - Material UI Inspired */
+
+:root {
+  --primary: #1976d2;
+  --primary-dark: #1565c0;
+  --primary-light: #42a5f5;
+  --surface: #ffffff;
+  --on-surface: #212121;
+  --on-surface-variant: #757575;
+  --outline: #e0e0e0;
+  --surface-variant: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-hover: rgba(0, 0, 0, 0.16);
+}
+
+/* Global reset for navbar */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.navbar-header {
+  background: var(--surface);
+  box-shadow: 0 2px 4px var(--shadow);
+  border-bottom: none;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.navbar-container {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Logo Section */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-left: 1rem;
+}
+
+.navbar-logo:hover {
+  background: rgba(25, 118, 210, 0.04);
+}
+
+.navbar-logo-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.navbar-logo-text {
+  color: white;
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.navbar-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.navbar-team-info h1 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.navbar-team-info p {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Desktop Navigation */
+.navbar-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar-nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--on-surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-nav-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-nav-button:hover::before {
+  opacity: 0.04;
+}
+
+.navbar-nav-button:active::before {
+  opacity: 0.08;
+}
+
+.navbar-nav-button.active {
+  background: rgba(25, 118, 210, 0.08);
+  color: var(--primary);
+}
+
+.navbar-nav-button.active::before {
+  opacity: 0;
+}
+
+.navbar-nav-label {
+  white-space: nowrap;
+}
+
+/* Actions Section */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* User Profile */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-user-info {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.navbar-user-primary {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.navbar-user-secondary {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.navbar-user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.navbar-user-avatar:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 8px var(--shadow-hover);
+}
+
+.navbar-user-avatar span {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Menu Button */
+.navbar-mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-mobile-menu-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-mobile-menu-button:hover::before {
+  opacity: 0.04;
+}
+
+.navbar-mobile-menu-button:active::before {
+  opacity: 0.08;
+}
+
+/* Mobile Drawer */
+.navbar-mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-mobile-drawer.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.navbar-mobile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.navbar-mobile-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  background: var(--surface);
+  box-shadow: -2px 0 8px var(--shadow);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-mobile-drawer.open .navbar-mobile-nav {
+  transform: translateX(0);
+}
+
+.navbar-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--outline);
+}
+
+.navbar-mobile-header h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.navbar-mobile-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-mobile-close:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.navbar-mobile-items {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navbar-mobile-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--on-surface-variant);
+  text-align: left;
+  width: 100%;
+}
+
+.navbar-mobile-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.navbar-mobile-item.active {
+  background: rgba(25, 118, 210, 0.08);
+  color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar-nav-desktop {
+    gap: 0.25rem;
+    right: 1.5rem;
+  }
+
+  .navbar-nav-button {
+    padding: 0.75rem;
+  }
+
+  .navbar-nav-label {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 1rem;
+  }
+
+  .navbar-nav-desktop {
+    display: none;
+  }
+
+  .navbar-mobile-menu-button {
+    display: flex;
+  }
+
+  .navbar-user-info {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    padding: 0 0.75rem;
+  }
+
+  .navbar-team-info h1 {
+    font-size: 1.125rem;
+  }
+
+  .navbar-team-info p {
+    font-size: 0.8125rem;
+  }
+
+  .navbar-mobile-nav {
+    width: 100%;
+  }
+}
+
+/* Focus styles for accessibility */
+.navbar-nav-button:focus,
+.navbar-mobile-item:focus,
+.navbar-user-avatar:focus,
+.navbar-mobile-menu-button:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for mobile drawer */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-mobile-drawer,
+  .navbar-mobile-nav {
+    transition: none;
+  }
+}

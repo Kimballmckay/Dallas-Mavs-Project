@@ -1,0 +1,636 @@
+/* Prospects.css - Material UI Inspired with Enhanced Filters */
+
+:root {
+  --primary: #1976d2;
+  --primary-light: #42a5f5;
+  --primary-dark: #1565c0;
+  --surface: #ffffff;
+  --background: #fafafa;
+  --on-surface: #212121;
+  --on-surface-variant: #757575;
+  --outline: #e0e0e0;
+  --surface-variant: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-hover: rgba(0, 0, 0, 0.16);
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+
+.prospects-container {
+  min-height: 100vh;
+  background: var(--background);
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  box-sizing: border-box;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* Header */
+.prospects-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.prospects-header h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.prospects-header p {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: var(--on-surface-variant);
+  font-weight: 400;
+}
+
+/* Controls Section */
+.prospects-controls {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Search Section */
+.prospects-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.prospects-search-input {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.prospects-search-input svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--on-surface-variant);
+  z-index: 1;
+}
+
+.prospects-search-input input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--surface);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.prospects-search-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.prospects-search-input input::placeholder {
+  color: var(--on-surface-variant);
+}
+
+/* Filter Toggle Button */
+.prospects-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--on-surface);
+  white-space: nowrap;
+}
+
+.prospects-filter-toggle:hover {
+  background: var(--surface-variant);
+  border-color: var(--primary);
+}
+
+.prospects-filter-toggle.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.prospects-filter-toggle svg.rotated {
+  transform: rotate(180deg);
+}
+
+.prospects-filter-toggle svg {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Filter Panel */
+.prospects-filters {
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  animation: slideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prospects-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.prospects-filter-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 0.25rem;
+}
+
+.prospects-filter-select {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--on-surface);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prospects-filter-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.prospects-filter-select:hover {
+  border-color: var(--primary);
+}
+
+.prospects-clear-filters {
+  padding: 0.75rem 1.5rem;
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.prospects-clear-filters:hover {
+  background: var(--outline);
+  border-color: var(--on-surface-variant);
+}
+
+.prospects-count {
+  background: var(--primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+  font-size: 0.875rem;
+  align-self: flex-start;
+}
+
+/* Players Grid */
+.prospects-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual Player Card */
+.prospects-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.prospects-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prospects-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.prospects-card:hover::before {
+  opacity: 1;
+}
+
+/* Photo */
+.prospects-photo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem auto;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.prospects-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--outline);
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prospects-card:hover .prospects-photo img {
+  border-color: var(--primary);
+}
+
+.prospects-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--outline);
+  color: var(--on-surface-variant);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.prospects-photo-placeholder.hidden {
+  display: none;
+}
+
+/* Player Info */
+.prospects-info {
+  text-align: center;
+}
+
+.prospects-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prospects-card:hover .prospects-name {
+  color: var(--primary);
+}
+
+.prospects-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  flex-wrap: wrap;
+}
+
+.prospects-team {
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+.prospects-league {
+  background: var(--surface-variant);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  border: 1px solid var(--outline);
+}
+
+.prospects-separator {
+  color: var(--outline);
+}
+
+.prospects-position {
+  background: var(--surface-variant);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+/* Stats Grid */
+.prospects-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--surface-variant);
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+}
+
+.prospects-stat {
+  text-align: center;
+}
+
+.prospects-stat-value {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.prospects-stat-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.prospects-stats-unavailable {
+  padding: 1rem;
+  background: var(--surface-variant);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  font-style: italic;
+  margin-bottom: 1rem;
+  border: 1px solid var(--outline);
+}
+
+/* Additional Info */
+.prospects-additional-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Hover Hint */
+.prospects-hover-hint {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 500;
+  padding: 0.5rem;
+  background: rgba(25, 118, 210, 0.08);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.prospects-card:hover .prospects-hover-hint {
+  opacity: 1;
+}
+
+/* Loading States */
+.prospects-loading {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.prospects-card-skeleton {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+  animation: pulse 2s infinite;
+}
+
+.prospects-photo-skeleton {
+  width: 80px;
+  height: 80px;
+  background: var(--outline);
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+}
+
+.prospects-info-skeleton {
+  text-align: center;
+}
+
+.prospects-name-skeleton {
+  width: 70%;
+  height: 1.25rem;
+  background: var(--outline);
+  border-radius: 4px;
+  margin: 0 auto 0.5rem auto;
+}
+
+.prospects-team-skeleton {
+  width: 50%;
+  height: 0.875rem;
+  background: var(--surface-variant);
+  border-radius: 4px;
+  margin: 0 auto 1rem auto;
+}
+
+.prospects-stats-skeleton {
+  width: 100%;
+  height: 4rem;
+  background: var(--surface-variant);
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* No Results */
+.prospects-no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--outline);
+}
+
+.prospects-no-results h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.prospects-no-results p {
+  color: var(--on-surface-variant);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prospects-container {
+    padding: 1rem;
+  }
+
+  .prospects-search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .prospects-search-input {
+    min-width: unset;
+  }
+
+  .prospects-filter-toggle {
+    justify-content: center;
+  }
+
+  .prospects-filters {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .prospects-filter-group {
+    min-width: unset;
+  }
+
+  .prospects-count {
+    text-align: center;
+    align-self: auto;
+  }
+
+  .prospects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prospects-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .prospects-stat-value {
+    font-size: 1rem;
+  }
+
+  .prospects-stat-label {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prospects-card {
+    padding: 1rem;
+  }
+
+  .prospects-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.75rem;
+  }
+
+  .prospects-additional-info {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .prospects-filters {
+    padding: 1rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.prospects-card:focus,
+.prospects-search-input input:focus,
+.prospects-filter-select:focus,
+.prospects-filter-toggle:focus,
+.prospects-clear-filters:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .prospects-card,
+  .prospects-filter-toggle svg,
+  .prospects-filters {
+    transition: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

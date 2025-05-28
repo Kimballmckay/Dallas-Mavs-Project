@@ -1,0 +1,1121 @@
+/* PlayerProfile.css - Material UI Inspired */
+
+:root {
+  --primary: #1976d2;
+  --primary-light: #42a5f5;
+  --primary-dark: #1565c0;
+  --surface: #ffffff;
+  --background: #fafafa;
+  --on-surface: #212121;
+  --on-surface-variant: #757575;
+  --outline: #e0e0e0;
+  --surface-variant: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-hover: rgba(0, 0, 0, 0.16);
+  --success: #2e7d32;
+  --error: #d32f2f;
+  --warning: #f57c00;
+}
+
+.player-profile-container {
+  min-height: 100vh;
+  background: var(--background);
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  box-sizing: border-box;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* Header Section */
+.player-profile-header {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+}
+
+.player-profile-back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+}
+
+.player-profile-back-button:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--primary);
+}
+
+.player-profile-main-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.player-profile-photo {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.player-profile-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--outline);
+}
+
+.player-profile-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--outline);
+  color: var(--on-surface-variant);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.player-profile-photo-placeholder.hidden {
+  display: none;
+}
+
+.player-profile-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.player-profile-name {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--on-surface);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.player-profile-basic-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.player-profile-team {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.player-profile-separator {
+  color: var(--outline);
+  font-weight: normal;
+}
+
+.player-profile-league {
+  font-size: 1.125rem;
+  color: var(--on-surface-variant);
+  font-weight: 400;
+}
+
+.player-profile-measurements {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.player-profile-measurement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.player-profile-measurement-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.player-profile-measurement-value {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--on-surface);
+}
+
+.player-profile-ranking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.player-profile-consensus-rank {
+  background: var(--primary);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+}
+
+.player-profile-rank-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.player-profile-rank-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Bio Section */
+.player-profile-bio-section {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+}
+
+.player-profile-bio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.player-profile-bio-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-profile-bio-item svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.player-profile-bio-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.player-profile-bio-value {
+  display: block;
+  font-size: 1rem;
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+/* Tabs */
+.player-profile-tabs {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+  gap: 0.25rem;
+}
+
+.player-profile-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  justify-content: center;
+}
+
+.player-profile-tab:not(.active) {
+  background: transparent;
+  color: var(--on-surface-variant);
+}
+
+.player-profile-tab:not(.active):hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--on-surface);
+}
+
+.player-profile-tab.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+}
+
+/* Content */
+.player-profile-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+}
+
+/* Stats Section */
+.player-profile-current-stats h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.player-profile-team-record {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  font-weight: 400;
+}
+
+.player-profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.player-profile-stat-card {
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-stat-card:hover {
+  background: rgba(25, 118, 210, 0.04);
+  border-color: var(--primary);
+}
+
+.player-profile-stat-value {
+  display: block;
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.player-profile-stat-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.player-profile-advanced-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.player-profile-advanced-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface-variant);
+  border-radius: 4px;
+  border: 1px solid var(--outline);
+}
+
+.player-profile-advanced-label {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  font-weight: 400;
+}
+
+.player-profile-advanced-value {
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+/* Tables */
+.player-profile-all-seasons h3,
+.player-profile-game-log-section h3,
+.player-profile-scouting-section h3,
+.player-profile-scout-rankings h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 1rem;
+}
+
+.player-profile-stats-table-container,
+.player-profile-game-log-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+}
+
+.player-profile-stats-table,
+.player-profile-game-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.player-profile-stats-table th,
+.player-profile-game-log-table th {
+  background: var(--surface-variant);
+  color: var(--on-surface);
+  font-weight: 500;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--outline);
+  white-space: nowrap;
+}
+
+.player-profile-stats-table td,
+.player-profile-game-log-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--outline);
+  white-space: nowrap;
+}
+
+.player-profile-stats-table tbody tr:hover,
+.player-profile-game-log-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.player-profile-game-result.w {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.player-profile-game-result.l {
+  color: var(--error);
+  font-weight: 500;
+}
+
+.player-profile-game-log-table .positive {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.player-profile-game-log-table .negative {
+  color: var(--error);
+  font-weight: 500;
+}
+
+/* Scout Rankings */
+.player-profile-rankings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.player-profile-ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+}
+
+.player-profile-ranking-item.consensus {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.player-profile-scout-name {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.player-profile-scout-rank {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.player-profile-ranking-summary {
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.player-profile-ranking-summary h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0 0 1rem 0;
+}
+
+.player-profile-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.player-profile-summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 4px;
+  border: 1px solid var(--outline);
+}
+
+.player-profile-summary-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.player-profile-summary-value {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Scouting Notes Section */
+.player-profile-notes-section {
+  width: 100%;
+}
+
+.player-profile-notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.player-profile-notes-header h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.player-profile-add-note-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-add-note-button:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+}
+
+/* Note Form */
+.player-profile-note-form {
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.player-profile-note-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.player-profile-note-form-header h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.player-profile-cancel-button {
+  background: transparent;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--on-surface-variant);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-cancel-button:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.player-profile-form-group {
+  margin-bottom: 1rem;
+}
+
+.player-profile-form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.player-profile-form-input,
+.player-profile-form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--on-surface);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.player-profile-form-input:focus,
+.player-profile-form-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.player-profile-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.player-profile-form-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.player-profile-save-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-save-button:hover:not(:disabled) {
+  background: #1b5e20;
+  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.3);
+}
+
+.player-profile-save-button:disabled {
+  background: var(--on-surface-variant);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.player-profile-cancel-text-button {
+  background: transparent;
+  border: none;
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.75rem 0;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-cancel-text-button:hover {
+  color: var(--on-surface);
+}
+
+/* Notes List */
+.player-profile-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.player-profile-note-card {
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-note-card:hover {
+  box-shadow: 0 4px 8px var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.player-profile-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.player-profile-note-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.player-profile-note-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.player-profile-edit-button,
+.player-profile-delete-button {
+  background: transparent;
+  border: 1px solid var(--outline);
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-edit-button {
+  color: var(--primary);
+}
+
+.player-profile-edit-button:hover {
+  background: rgba(25, 118, 210, 0.04);
+  border-color: var(--primary);
+}
+
+.player-profile-delete-button {
+  color: var(--error);
+}
+
+.player-profile-delete-button:hover {
+  background: rgba(211, 47, 47, 0.04);
+  border-color: var(--error);
+}
+
+.player-profile-note-content {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--on-surface);
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.player-profile-note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  border-top: 1px solid var(--outline);
+  padding-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.player-profile-note-date {
+  font-weight: 500;
+}
+
+.player-profile-note-updated {
+  font-style: italic;
+}
+
+/* Highlights Section */
+.player-profile-highlights {
+  width: 100%;
+}
+
+.player-profile-video-container {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.player-profile-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.player-profile-highlight-item {
+  background: var(--surface-variant);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-profile-highlight-item:hover {
+  background: rgba(25, 118, 210, 0.04);
+  border-color: var(--primary);
+}
+
+.player-profile-highlight-item.selected {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.player-profile-highlight-content h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.player-profile-highlight-content p {
+  font-size: 0.875rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Loading States */
+.player-profile-loading {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.player-profile-skeleton-header,
+.player-profile-skeleton-content {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+  animation: pulse 2s infinite;
+}
+
+.player-profile-skeleton-content {
+  height: 400px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Not Found */
+.player-profile-not-found {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  box-shadow: 0 2px 4px var(--shadow);
+  border: 1px solid var(--outline);
+}
+
+.player-profile-not-found h2 {
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.player-profile-not-found p {
+  color: var(--on-surface-variant);
+  margin-bottom: 2rem;
+}
+
+/* No Data */
+.player-profile-no-data {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface-variant);
+  border: 2px dashed var(--outline);
+  border-radius: 8px;
+  color: var(--on-surface-variant);
+}
+
+.player-profile-no-data p {
+  font-size: 1.125rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .player-profile-main-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .player-profile-details {
+    min-width: unset;
+  }
+
+  .player-profile-measurements {
+    justify-content: center;
+  }
+
+  .player-profile-tabs {
+    flex-direction: column;
+  }
+
+  .player-profile-tab {
+    flex: none;
+  }
+
+  .player-profile-notes-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .player-profile-add-note-button {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .player-profile-container {
+    padding: 1rem;
+  }
+
+  .player-profile-header {
+    padding: 1.5rem;
+  }
+
+  .player-profile-name {
+    font-size: 2rem;
+  }
+
+  .player-profile-main-info {
+    gap: 1.5rem;
+  }
+
+  .player-profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .player-profile-measurements {
+    gap: 1.5rem;
+  }
+
+  .player-profile-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .player-profile-advanced-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .player-profile-bio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-profile-rankings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-profile-content {
+    padding: 1.5rem;
+  }
+
+  .player-profile-note-form {
+    padding: 1rem;
+  }
+
+  .player-profile-note-card {
+    padding: 1rem;
+  }
+
+  .player-profile-note-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .player-profile-note-actions {
+    align-self: flex-end;
+  }
+
+  .player-profile-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .player-profile-save-button {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .player-profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .player-profile-stats-table-container,
+  .player-profile-game-log-table-container {
+    overflow-x: scroll;
+  }
+
+  .player-profile-basic-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .player-profile-separator {
+    display: none;
+  }
+
+  .player-profile-video-container iframe {
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-profile-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-profile-measurements {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .player-profile-advanced-stat {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .player-profile-note-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .player-profile-video-container iframe {
+    height: 250px !important;
+  }
+}
+
+/* Focus styles for accessibility */
+.player-profile-back-button:focus,
+.player-profile-tab:focus,
+.player-profile-add-note-button:focus,
+.player-profile-save-button:focus,
+.player-profile-cancel-button:focus,
+.player-profile-edit-button:focus,
+.player-profile-delete-button:focus,
+.player-profile-cancel-text-button:focus,
+.player-profile-highlight-item:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.player-profile-form-input:focus,
+.player-profile-form-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Smooth scrolling for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .player-profile-tab,
+  .player-profile-back-button,
+  .player-profile-add-note-button,
+  .player-profile-save-button,
+  .player-profile-cancel-button,
+  .player-profile-edit-button,
+  .player-profile-delete-button,
+  .player-profile-cancel-text-button,
+  .player-profile-note-card,
+  .player-profile-highlight-item {
+    transition: none;
+  }
+}
