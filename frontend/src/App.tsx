@@ -27,12 +27,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* This component will scroll to top on route changes */}
         <ScrollToTop />
 
         {/* NavBar appears on all pages */}
         <NavBar />
-
         {/* Routes for different pages */}
         <Routes>
           <Route path="/" element={<HomePage />} />

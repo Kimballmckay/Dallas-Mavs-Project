@@ -83,59 +83,6 @@ export class SeasonLogUtils {
     return Math.round((seasonLog.w / totalGames) * 1000) / 10;
   }
 
-  /*Calculate player efficiency rating (PER) approximation*/
-  static calculatePER(seasonLog: SeasonLog): number {
-    if (seasonLog.MP === 0) return 0;
-
-    const per =
-      (seasonLog.PTS +
-        seasonLog.TRB +
-        seasonLog.AST +
-        seasonLog.STL +
-        seasonLog.BLK -
-        (seasonLog.FGA - seasonLog.FGM) -
-        (seasonLog.FTA - seasonLog.FT) -
-        seasonLog.TOV) /
-      seasonLog.MP;
-
-    return Math.round(per * 100) / 100;
-  }
-
-  /*Check if player is averaging a double-double*/
-  static isAveragingDoubleDouble(seasonLog: SeasonLog): boolean {
-    const stats = [
-      seasonLog.PTS,
-      seasonLog.TRB,
-      seasonLog.AST,
-      seasonLog.STL,
-      seasonLog.BLK,
-    ];
-    const doubleDigitStats = stats.filter((stat) => stat >= 10).length;
-    return doubleDigitStats >= 2;
-  }
-
-  /*Get shooting efficiency grade*/
-  static getShootingGrade(
-    seasonLog: SeasonLog
-  ): "A+" | "A" | "B+" | "B" | "C+" | "C" | "D" | "F" {
-    const ts = this.calculateTrueShootingPercentage(seasonLog);
-
-    if (ts >= 65) return "A+";
-    if (ts >= 60) return "A";
-    if (ts >= 57) return "B+";
-    if (ts >= 54) return "B";
-    if (ts >= 51) return "C+";
-    if (ts >= 48) return "C";
-    if (ts >= 45) return "D";
-    return "F";
-  }
-
-  /*Calculate games started percentage*/
-  static getStarterPercentage(seasonLog: SeasonLog): number {
-    if (seasonLog.GP === 0) return 0;
-    return Math.round((seasonLog.GS / seasonLog.GP) * 1000) / 10;
-  }
-
   /*Get key statistical categories for comparison*/
   static getKeyStats(seasonLog: SeasonLog): {
     scoring: number;
@@ -149,24 +96,5 @@ export class SeasonLogUtils {
       playmaking: seasonLog.AST,
       efficiency: this.calculateTrueShootingPercentage(seasonLog),
     };
-  }
-
-  /*Format season for display*/
-  static formatSeason(season: number): string {
-    return `${season - 1}-${season.toString().slice(-2)}`;
-  }
-
-  /*Check if player is a high-volume scorer*/
-  static isHighVolumeScorer(seasonLog: SeasonLog): boolean {
-    return seasonLog.PTS >= 20 && seasonLog.FGA >= 15;
-  }
-
-  /*Check if player is an efficient shooter*/
-  static isEfficientShooter(seasonLog: SeasonLog): boolean {
-    return (
-      seasonLog["FG%"] >= 50 ||
-      seasonLog["eFG%"] >= 55 ||
-      this.calculateTrueShootingPercentage(seasonLog) >= 60
-    );
   }
 }

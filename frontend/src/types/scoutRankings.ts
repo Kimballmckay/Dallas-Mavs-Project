@@ -85,14 +85,4 @@ export class ScoutRankingUtils {
   ): number {
     return ranking[scoutName] as number;
   }
-
-  /*Check if player is ranked in top 10 by consensus*/
-  static isTopTenPlayer(ranking: ScoutRanking): boolean {
-    return this.getConsensusRank(ranking) <= 10;
-  }
-
-  /*Check if player is projected as first round pick*/
-  static isFirstRoundPlayer(ranking: ScoutRanking): boolean {
-    return this.getConsensusRank(ranking) <= 30;
-  }
 }

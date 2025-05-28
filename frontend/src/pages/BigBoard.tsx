@@ -112,19 +112,18 @@ export default function BigBoard() {
 
             return {
               id: player.playerId,
-              rank: savedRankings[player.playerId] || consensusRank, // Use saved rank if available
+              rank: savedRankings[player.playerId] || consensusRank,
               name: player.name,
               photoUrl: player.photoUrl,
               team: player.currentTeam,
               league: player.league,
               height: player.height,
               weight: player.weight,
-              position: undefined, // You can add position to bio data if needed
-              consensusRank, // Keep original for reference
-              scoutRanking: rankings, // Include full scout ranking data
+              position: undefined, 
+              consensusRank, 
+              scoutRanking: rankings, 
             };
           })
-          // Filter out players with no ranking (if using consensus as base)
           .filter((player) => {
             // Only filter if we're using consensus rankings and no saved rankings exist
             if (Object.keys(savedRankings).length === 0) {
@@ -139,7 +138,7 @@ export default function BigBoard() {
               return a.rank - b.rank;
             }
 
-            // Otherwise, sort by consensus with tiebreaker logic (same as ScoutRankings)
+            // Otherwise, sort by consensus with tiebreaker logic
             if (a.consensusRank !== b.consensusRank) {
               return a.consensusRank - b.consensusRank;
             }
@@ -155,10 +154,10 @@ export default function BigBoard() {
               return aDecimalAverage - bDecimalAverage;
             }
 
-            // Final fallback: maintain original order
+            // Maintain original order
             return 0;
           })
-          // Ensure ranks are sequential (1, 2, 3, etc.) in case there are gaps
+          // Ensure ranks are sequential
           .map((player, index) => ({
             ...player,
             rank: index + 1,
